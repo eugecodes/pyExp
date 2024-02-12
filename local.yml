@@ -1,0 +1,44 @@
+version: '3'
+
+volumes:
+  local_postgres_data: {}
+  local_postgres_data_backups: {}
+
+services:
+  fastapi:
+    build:
+      context: .
+      dockerfile: compose/production/fastapi/Dockerfile
+      args:
+        BUILD_ENVIRONMENT: local
+    image: local_fastapi
+    container_name: local_fastapi
+    depends_on:
+      - postgres
+      - mailhog
+    volumes:
+      - .:/app:z
+    env_file:
+      - .envs/.local
+    ports:
+      - "5000:5000"
+    command: /start
+
+
+  postgres:
+    image: postgres:15.0-alpine
+    container_name: local_postgres
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data:Z
+      - local_postgres_data_backups:/backups:z
+    env_file:
+      - .envs/.local
+    # show all query
+    command: postgres -c log_statement=all
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: local_mailhog
+    ports:
+      - "8025:8025"
+    restart: unless-stopped

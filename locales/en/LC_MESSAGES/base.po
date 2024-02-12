@@ -1,0 +1,361 @@
+#: src/modules/commissions/schemas.py:110 src/modules/costs/schemas.py:76
+#: src/modules/costs/schemas.py:165 src/modules/margins/schemas.py:120
+#: src/modules/marketers/schemas.py:144 src/modules/rates/schemas.py:128
+#: src/modules/saving_studies/schemas.py:290 src/modules/users/schemas.py:187
+msgid "Id"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:111 src/modules/costs/schemas.py:168
+#: src/modules/marketers/schemas.py:145 src/modules/rates/schemas.py:129
+#: src/modules/rates/schemas.py:396
+msgid "Name"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:112
+msgid "Range type"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:113 src/modules/margins/schemas.py:124
+#: src/modules/rates/schemas.py:403
+msgid "Minimum consumption"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:114 src/modules/margins/schemas.py:125
+#: src/modules/rates/schemas.py:404
+msgid "Maximum consumption"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:115 src/modules/costs/schemas.py:171
+#: src/modules/rates/schemas.py:131 src/modules/rates/schemas.py:401
+msgid "Minimum power"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:116 src/modules/costs/schemas.py:172
+#: src/modules/rates/schemas.py:132 src/modules/rates/schemas.py:402
+msgid "Maximum power"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:117
+msgid "Percentage Test commission"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:118
+msgid "Rate type segmentation"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:119
+msgid "Test commission"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:120 src/modules/costs/schemas.py:167
+msgid "Rates"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:121 src/modules/margins/schemas.py:123
+#: src/modules/rates/schemas.py:399
+msgid "Rate type"
+msgstr ""
+
+#: src/modules/commissions/schemas.py:122 src/modules/costs/schemas.py:82
+#: src/modules/costs/schemas.py:176 src/modules/margins/schemas.py:128
+#: src/modules/marketers/schemas.py:150 src/modules/rates/schemas.py:136
+#: src/modules/rates/schemas.py:424 src/modules/saving_studies/schemas.py:307
+#: src/modules/users/schemas.py:195
+msgid "Date"
+msgstr ""
+
+#: src/modules/costs/schemas.py:77
+msgid "Concept"
+msgstr ""
+
+#: src/modules/costs/schemas.py:78
+msgid "Amount"
+msgstr ""
+
+#: src/modules/costs/schemas.py:79 src/modules/costs/schemas.py:166
+#: src/modules/marketers/schemas.py:147 src/modules/users/schemas.py:192
+msgid "Is active"
+msgstr ""
+
+#: src/modules/costs/schemas.py:80 src/modules/marketers/schemas.py:148
+#: src/modules/rates/schemas.py:134
+msgid "User first name"
+msgstr ""
+
+#: src/modules/costs/schemas.py:81 src/modules/marketers/schemas.py:149
+#: src/modules/rates/schemas.py:135
+msgid "User last name"
+msgstr ""
+
+#: src/modules/costs/schemas.py:169
+msgid "Mandatory"
+msgstr ""
+
+#: src/modules/costs/schemas.py:170 src/modules/rates/schemas.py:398
+msgid "Client types"
+msgstr ""
+
+#: src/modules/costs/schemas.py:173 src/modules/margins/schemas.py:121
+msgid "Type"
+msgstr ""
+
+#: src/modules/costs/schemas.py:174
+msgid "Quantity"
+msgstr ""
+
+#: src/modules/costs/schemas.py:175
+msgid "Extra fee"
+msgstr ""
+
+#: src/modules/margins/schemas.py:122
+msgid "Rate"
+msgstr ""
+
+#: src/modules/margins/schemas.py:126
+msgid "Minimum margin"
+msgstr ""
+
+#: src/modules/margins/schemas.py:127
+msgid "Maximum margin"
+msgstr ""
+
+#: src/modules/marketers/schemas.py:146
+msgid "Fiscal Name"
+msgstr ""
+
+#: src/modules/rates/schemas.py:130 src/modules/saving_studies/schemas.py:297
+msgid "Energy type"
+msgstr ""
+
+#: src/modules/rates/schemas.py:133
+msgid "Enable"
+msgstr ""
+
+#: src/modules/rates/schemas.py:397
+msgid "Price type"
+msgstr ""
+
+#: src/modules/rates/schemas.py:400
+msgid "energy type"
+msgstr ""
+
+#: src/modules/rates/schemas.py:405
+msgid "Energy price 1"
+msgstr ""
+
+#: src/modules/rates/schemas.py:406
+msgid "Energy price 2"
+msgstr ""
+
+#: src/modules/rates/schemas.py:407
+msgid "Energy price 3"
+msgstr ""
+
+#: src/modules/rates/schemas.py:408
+msgid "Energy price 4"
+msgstr ""
+
+#: src/modules/rates/schemas.py:409
+msgid "Energy price 5"
+msgstr ""
+
+#: src/modules/rates/schemas.py:410
+msgid "Energy price 6"
+msgstr ""
+
+#: src/modules/rates/schemas.py:411
+msgid "Power price 1"
+msgstr ""
+
+#: src/modules/rates/schemas.py:412
+msgid "Power price 2"
+msgstr ""
+
+#: src/modules/rates/schemas.py:413
+msgid "Power price 3"
+msgstr ""
+
+#: src/modules/rates/schemas.py:414
+msgid "Power price 4"
+msgstr ""
+
+#: src/modules/rates/schemas.py:415
+msgid "Power price 5"
+msgstr ""
+
+#: src/modules/rates/schemas.py:416
+msgid "Power price 6"
+msgstr ""
+
+#: src/modules/rates/schemas.py:417
+msgid "Fixed term price"
+msgstr ""
+
+#: src/modules/rates/schemas.py:418
+msgid "Permanency"
+msgstr ""
+
+#: src/modules/rates/schemas.py:419
+msgid "Length"
+msgstr ""
+
+#: src/modules/rates/schemas.py:420
+msgid "Is full renewable"
+msgstr ""
+
+#: src/modules/rates/schemas.py:421
+msgid "Compensation surplus"
+msgstr ""
+
+#: src/modules/rates/schemas.py:422
+msgid "Compensation surplus value"
+msgstr ""
+
+#: src/modules/rates/schemas.py:423 src/modules/saving_studies/schemas.py:311
+msgid "Status"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:291
+msgid "Cups"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:292
+msgid "Client type"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:293
+msgid "Client name"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:294
+msgid "Client NIF"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:295
+msgid "Rate type ID"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:296
+msgid "Rate type name"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:298
+msgid "Current marketer"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:299
+msgid "Suggested rate ID"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:300
+msgid "Suggested rate name"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:301
+msgid "Suggested rate final cost"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:302
+msgid "Suggested rate theoretical commission"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:305
+msgid "Suggested rate saving relative"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:306
+msgid "Suggested rate saving absolute"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:308
+msgid "User creator ID"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:309
+msgid "User creator first name"
+msgstr ""
+
+#: src/modules/saving_studies/schemas.py:310
+msgid "User creator last name"
+msgstr ""
+
+#: src/modules/users/schemas.py:188
+msgid "First name"
+msgstr ""
+
+#: src/modules/users/schemas.py:189
+msgid "last name"
+msgstr ""
+
+#: src/modules/users/schemas.py:190
+msgid "Email address"
+msgstr ""
+
+#: src/modules/users/schemas.py:191
+msgid "Role"
+msgstr ""
+
+#: src/modules/users/schemas.py:193
+msgid "Responsible first name"
+msgstr ""
+
+#: src/modules/users/schemas.py:194
+msgid "Responsible last name"
+msgstr ""
+
+#: src/services/users.py:86
+msgid "Test reset password"
+msgstr "Test reset password"
+
+#: src/services/users.py:89 src/services/users.py:189 src/services/users.py:222
+msgid "Hi"
+msgstr ""
+
+#: src/services/users.py:91
+msgid "You have requested a password change."
+msgstr ""
+
+#: src/services/users.py:92
+msgid "to reset your password click on the following link:"
+msgstr ""
+
+#: src/services/users.py:93
+msgid "Reset password"
+msgstr ""
+
+#: src/services/users.py:94 src/services/users.py:196 src/services/users.py:225
+msgid "Thank you."
+msgstr ""
+
+#: src/services/users.py:95 src/services/users.py:197
+msgid "Regards"
+msgstr ""
+
+#: src/services/users.py:186
+msgid "Test account created"
+msgstr ""
+
+#: src/services/users.py:191
+msgid "Welcome to Test."
+msgstr ""
+
+#: src/services/users.py:192
+msgid "To start click on the following link and create a new password"
+msgstr ""
+
+#: src/services/users.py:195
+#, fuzzy
+msgid "Create password"
+msgstr "Test reset password"
+
+#: src/services/users.py:218
+msgid "Test password changed"
+msgstr ""
+
+#: src/services/users.py:224
+msgid "Your password has been changed."
+msgstr ""
+
+#: src/services/users.py:226
+msgid "Regards."
+msgstr ""

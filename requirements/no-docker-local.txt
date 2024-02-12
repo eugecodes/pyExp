@@ -1,0 +1,27 @@
+# Web server
+uvicorn  # https://pypi.org/project/uvicorn/
+httpx  # https://pypi.org/project/httpx/
+
+# FastAPI
+fastapi # https://pypi.org/project/fastapi/
+fastapi-mail  # https://pypi.org/project/fastapi-mail/
+fastapi-pagination  # https://github.com/uriyyo/fastapi-pagination
+fastapi-filter  # https://pypi.org/project/fastapi-filter/
+
+# Mail
+sib-api-v3-sdk  #  https://pypi.org/project/sib-api-v3-sdk/
+
+# Database
+psycopg2-binary  # https://pypi.org/project/psycopg2/
+SQLAlchemy  # https://pypi.org/project/SQLAlchemy/
+alembic  # https://pypi.org/project/alembic/
+
+# Password
+passlib[bcrypt]  # https://pypi.org/project/passlib/
+argon2-cffi  # https://pypi.org/project/argon2-cffi/
+
+# Sentry
+sentry-sdk[fastapi]  # https://pypi.org/project/sentry-sdk/
+
+# Commands
+typer[all]  # https://pypi.org/project/typer/

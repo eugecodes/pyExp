@@ -1,0 +1,28 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+### Python ###
+*.py[cod]
+*.pyc
+*.mo
+
+# virtualenv
+venv/
+
+# Unit test / coverage reports
+.coverage
+htmlcov
+
+# mypy
+.mypy_cache/
+
+# pytest
+.pytest_cache
+
+### IDE's ###
+.idea/
+.idea_modules/
+.ropeproject
+.vscode

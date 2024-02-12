@@ -1,0 +1,127 @@
+# You can override the included template(s) by including variable overrides
+# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
+# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
+# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
+# Container Scanning customization: https://docs.gitlab.com/ee/user/application_security/container_scanning/#customizing-the-container-scanning-settings
+# Note that environment variables can be set in several places
+# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
+stages:
+- lint
+- test
+- build
+- deploy
+
+variables:
+  PROJECT_NAME: "testing"
+
+precommit:
+  stage: lint
+  image: python:3.10
+  variables:
+    PRE_COMMIT_HOME: ${CI_PROJECT_DIR}/.cache/pre-commit
+  cache:
+    paths:
+      - ${PRE_COMMIT_HOME}
+  before_script:
+    - pip install -q pre-commit
+  script:
+    - pre-commit run --show-diff-on-failure --color=always --all-files
+
+pytest:
+  stage: test
+  image: docker/compose:1.29.2
+  tags:
+    - docker
+  services:
+    - docker:dind
+  before_script:
+    - docker-compose -f local.yml build
+    - docker-compose -f local.yml up -d
+  script:
+    - docker-compose -f local.yml run fastapi coverage run -m pytest
+    - docker-compose -f local.yml run fastapi coverage xml
+    - sed -i 's/\/app/.\//g' coverage.xml
+    - docker-compose -f local.yml run fastapi coverage report
+  coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+
+sast:
+  stage: test
+include:
+- template: Security/SAST.gitlab-ci.yml
+
+
+build_staging:
+  stage: build
+  image:
+    name: amazon/aws-cli
+    entrypoint: [ "" ]
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+  allow_failure: false
+  only:
+    - develop
+  before_script:
+    - amazon-linux-extras install docker
+  services:
+    - docker:dind
+  script:
+    - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $DOCKER_REGISTRY_STAGING
+    - export IMAGENAME=${DOCKER_REGISTRY_STAGING}/fastapi-${PROJECT_NAME}:staging
+    - docker build -t ${IMAGENAME} --build-arg BUILD_ENVIRONMENT=production -f compose/production/fastapi/Dockerfile .
+    - docker push ${IMAGENAME}
+
+deploy_staging:
+  stage: deploy
+  image:
+    name: amazon/aws-cli
+    entrypoint: [ "" ]
+  only:
+    - develop
+  script:
+    - aws ecs update-service --region $AWS_DEFAULT_REGION --cluster $AWS_ECS_CLUSTER_STAGING --service $AWS_ECS_SERVICE_STAGING-fastapi --force-new-deployment
+  environment:
+    name: staging
+    url: https://test-dev/
+
+build_production:
+  stage: build
+  image:
+    name: amazon/aws-cli
+    entrypoint: [ "" ]
+  variables:
+    DOCKER_HOST: tcp://docker:2375
+    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_PRODUCTION
+    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_PRODUCTION
+  allow_failure: false
+  only:
+    - master
+  before_script:
+    - amazon-linux-extras install docker
+  services:
+    - docker:dind
+  script:
+    - aws ecr get-login-password | docker login --username AWS --password-stdin $DOCKER_REGISTRY_PRODUCTION
+    - export IMAGENAME=${DOCKER_REGISTRY_PRODUCTION}/fastapi-${PROJECT_NAME}-production:production
+    - docker build -t ${IMAGENAME} --build-arg BUILD_ENVIRONMENT=production -f compose/production/fastapi/Dockerfile .
+    - docker push ${IMAGENAME}
+
+deploy_production:
+  variables:
+    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID_PRODUCTION
+    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY_PRODUCTION
+  stage: deploy
+  image:
+    name: amazon/aws-cli
+    entrypoint: [ "" ]
+  only:
+    - master
+  script:
+    - aws ecs update-service --cluster $AWS_ECS_CLUSTER_PRODUCTION --service $AWS_ECS_SERVICE_PRODUCTION-fastapi --force-new-deployment
+  environment:
+    name: production
+    url: https://test/

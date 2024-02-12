@@ -1,0 +1,32 @@
+# Web server
+uvicorn>=0.22.0  # https://pypi.org/project/uvicorn/
+httpx==0.24.1  # https://pypi.org/project/httpx/
+
+# FastAPI
+fastapi>=0.97.0 # https://pypi.org/project/fastapi/
+fastapi-mail==1.2.8  # https://pypi.org/project/fastapi-mail/
+fastapi-pagination==0.12.4  # https://github.com/uriyyo/fastapi-pagination
+fastapi-filter==0.6.0  # https://pypi.org/project/fastapi-filter/
+
+# Mail
+sib-api-v3-sdk==7.6.0  #  https://pypi.org/project/sib-api-v3-sdk/
+
+# Database
+psycopg2==2.9.6  # https://pypi.org/project/psycopg2/
+SQLAlchemy==2.0.16  # https://pypi.org/project/SQLAlchemy/
+alembic==1.11.1  # https://pypi.org/project/alembic/
+
+# Password
+passlib[bcrypt]==1.7.4  # https://pypi.org/project/passlib/
+argon2-cffi==21.3.0  # https://pypi.org/project/argon2-cffi/
+
+# Sentry
+sentry-sdk[fastapi]==1.25.1  # https://pypi.org/project/sentry-sdk/
+
+# Commands
+typer[all]==0.9.0  # https://pypi.org/project/typer/
+
+# Requests
+
+requests==2.31.0  # https://pypi.org/project/requests/
+requests_oauthlib==1.3.1  # https://pypi.org/project/requests-oauthlib/

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+
+# generate translation files
+msgfmt -o locales/es/LC_MESSAGES/base.mo locales/es/LC_MESSAGES/base
+msgfmt -o locales/en/LC_MESSAGES/base.mo locales/en/LC_MESSAGES/base
+
+# database migrations
+alembic upgrade head
+
+exec uvicorn main:app --host 0.0.0.0 --port 5000
